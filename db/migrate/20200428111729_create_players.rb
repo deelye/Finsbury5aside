@@ -5,8 +5,8 @@ class CreatePlayers < ActiveRecord::Migration[6.0]
       t.integer :appearances
       t.integer :goals
       t.integer :conceded
-      t.decimal :avg_goals
-      t.decimal :avg_conceded
+      t.float :avg_goals
+      t.float :avg_conceded
       t.integer :subs
 
       t.timestamps
