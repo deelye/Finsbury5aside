@@ -3,4 +3,6 @@ class Game < ApplicationRecord
   has_many :players, through: :lineups
 
   validates :date, presence: true, uniquess: true
+  validates :blue_goals, numericality: { greater_than_or_equal_to: 0 }
+  validates :maroon_goals, numericality: { greater_than_or_equal_to: 0 }
 end
