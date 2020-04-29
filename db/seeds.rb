@@ -1,7 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Game.destroy_all if Rails.env.development?
+Player.destroy_all if Rails.env.development?
+User.destroy_all if Rails.env.development?
+
+puts '--- CREATING GAMES ---'
+
+Game.create!([{ date: Date.parse('28-04-2020') },
+              { date: Date.parse('21-04-2020') },
+              { date: Date.parse('15-04-2020') },
+              { date: Date.parse('07-04-2020') },
+              { date: Date.parse('31-03-2020') }])
+
+puts '--- CREATING PLAYERS ---'
+
+Player.create!([{ name: 'Bez' },
+                { name: 'Graham' },
+                { name: 'Lewis' },
+                { name: 'Alawi' },
+                { name: 'Mason' },
+                { name: 'Cridland' },
+                { name: 'Stockers' },
+                { name: 'Cal' },
+                { name: 'Malawi' },
+                { name: 'Todd' }])
+
+puts '--- CREATING USER ---'
+
+User.create!(email: 'test@gmail.com', password: 'password')
