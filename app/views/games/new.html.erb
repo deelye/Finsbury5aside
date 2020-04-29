@@ -27,4 +27,9 @@
     <% end %>
   </ul>
 
+  <%= simple_form_for(@game) do |element| %>
+    <%= element.date_field :date %>
+    <%= element.submit "CREATE GAME", class: 'btn btn-secondary' %>
+  <% end %>
+
 </div>
