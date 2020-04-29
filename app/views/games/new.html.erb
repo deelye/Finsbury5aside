@@ -1,0 +1,30 @@
+<div class="z-container">
+
+  <h1>Admin</h1>
+
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <%= link_to "Games...", new_game_path, class: "tab-underlined active" %>
+    </li>
+    <li>
+      <%= link_to "Players...", class: "tab-underlined" %>
+    </li>
+  </ul>
+
+  <h3>Upcoming games:</h3>
+  <ul>
+    <% if @games.count.zero? %>
+      <p>No games</p>
+    <% else %>
+      <% @games.each do |game| %>
+
+        <li><%= game.date.strftime("%A %-d %B %Y") %></li>
+        <%= link_to(game_path(game.id), method: :delete) do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>

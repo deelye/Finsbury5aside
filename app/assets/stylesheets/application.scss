@@ -11,3 +11,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-color: white;
+}
+
+.z-container {
+  width: 100%;
+  padding: 80px 100px;
+}
