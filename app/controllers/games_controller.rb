@@ -6,12 +6,16 @@ class GamesController < ApplicationController
   end
 
   def create
-    date = Date.parse(game_params[:date])
-    @game = Game.new(date: date)
-    if @game.save
+    # why aren't validation messages working?
+    if game_params[:date] == ""
       redirect_to new_game_path
     else
-      render :new
+      @game = Game.new(date: Date.parse(game_params[:date]))
+      if @game.save
+        redirect_to new_game_path
+      else
+        render :new
+      end
     end
   end
 
