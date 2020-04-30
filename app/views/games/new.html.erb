@@ -17,14 +17,19 @@
       <p>No games</p>
     <% else %>
       <% @games.each do |game| %>
-
-        <li><%= game.date.strftime("%A %-d %B %Y") %></li>
-        <%= link_to(game_path(game.id), method: :delete) do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
-
+        <li>
+          <%= game.date.strftime("%A %-d %B %Y") %>
+          <%= link_to(game_path(game.id), method: :delete) do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </li>
       <% end %>
     <% end %>
   </ul>
+
+  <%= simple_form_for(@game) do |element| %>
+    <%= element.date_field :date %>
+    <%= element.submit "CREATE GAME", class: 'btn btn-secondary' %>
+  <% end %>
 
 </div>
